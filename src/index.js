@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import ManageEvents from './routes/manage-events';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="manage-events" element={<ManageEvents />} />
+        </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
@@ -15,3 +26,4 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
