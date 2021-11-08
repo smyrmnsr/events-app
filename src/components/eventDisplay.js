@@ -5,9 +5,10 @@ import { getEvents, deleteEvents } from "../store/actions/eventAction";
 
 const EventDisplay = () => {
     const dispatch = useDispatch();
-    const events = useSelector((state) => state.events);
+    const events = useSelector((state) => state.events.data);
+    console.log(events);
 
-    useEffect(() => {    
+    useEffect(() => {
         dispatch(getEvents());
     }, [dispatch])
 
@@ -19,10 +20,10 @@ const EventDisplay = () => {
 
     return (
         <>
-            { events.length > 0 ? "Events" : "There are no events yet."}
+            { events && events.data.length > 0 ? "Events" : "There are no events yet."}
             <ul>
-            { events.length > 0 && 
-                events.map((event, index) => {
+            { events && events.data.length > 0 && 
+                events.data.map((event, index) => {
                     return (
                         <li key={index}>
                             {event.eventName} | {event.location} | {event.startDate} | {event.endDate} | {event.submittedAt}
@@ -30,7 +31,7 @@ const EventDisplay = () => {
                     )
                 }) }
             </ul>
-            { events.length > 0 &&
+            { events && events.data.length > 0 &&
                 <button onClick={handleDelete}>
                     Delete All Events
                 </button> }

@@ -9,7 +9,7 @@ createEvent = (req, res) => {
       error: "You must provide an event",
     });
   }
-
+  console.log(body);
   const event = new Event(body);
 
   if (!event) {
@@ -41,7 +41,7 @@ deleteEvents = async (req, res) => {
     }
 
     return res.status(200).json({ success: true, data: event });
-  }).catch((err) => console.log(err));
+  }).clone().catch((err) => console.log(err));
 };
 
 getEvents = async (req, res) => {
