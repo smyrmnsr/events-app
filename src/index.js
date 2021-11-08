@@ -19,16 +19,14 @@ import ManageEvent from './routes/manage-event';
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
-  
   <React.StrictMode>
     <BrowserRouter>
-    <Provider store={store}>
-    
-      <Routes>
-        <Route path="/" element={<App />}/>
-        <Route path="/manage-event" element={<ManageEvent />}/>
-      </Routes>
-    </Provider>
+      <Provider store={store}>  
+        <Routes>
+          <Route path="/" element={<App />}/>
+          <Route path="/manage-event" element={<ManageEvent />}/>
+        </Routes>
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
