@@ -3,20 +3,33 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
 import rootReducer from './store/reducers/rootReducer';
+import ManageEvent from './routes/manage-event';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
+  
   <React.StrictMode>
+    <BrowserRouter>
     <Provider store={store}>
-    <App />
+    
+      <Routes>
+        <Route path="/" element={<App />}/>
+        <Route path="/manage-event" element={<ManageEvent />}/>
+      </Routes>
     </Provider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
