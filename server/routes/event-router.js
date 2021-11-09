@@ -9,5 +9,6 @@ router.post("/event", EventCtrl.createEvent);
 router.delete("/events/", EventCtrl.deleteEvents);
 router.get("/events", EventCtrl.getEvents);
 router.post("/register", UserCtrl.signUp);
+router.post("/login", UserCtrl.signIn);
 
 module.exports = router;

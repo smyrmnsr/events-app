@@ -4,11 +4,11 @@ const jwt = require("jsonwebtoken");
 
 signUp = async (req, res) => {
     const body = req.body;
-    console.log(req.body);
+
     if (!body) {
         return res.status(400).json({
             success: false,
-            erorr: "You must provide an event",
+            erorr: "You must provide an user",
         });
     }
 
@@ -44,6 +44,42 @@ signUp = async (req, res) => {
         })
 }
 
+signIn = async (req, res) => {
+    const body = req.body;
+
+    if (!body) {
+        return res.status(400).json({
+            success: false,
+            erorr: "You must provide an user",
+        });
+    }
+
+    let user = await User.findOne({email: body.email});
+    if (!user) {
+        return res.status(400).json({
+            success: false,
+            error: "User doesn't exist",
+        });
+    }
+
+    const validPassword = await bcrypt.compare(req.body.password, user.password);
+    if(!validPassword) {
+        return res.status(400).json({
+            success: false,
+            error: "Password is incorrect",
+        })
+    }
+
+    const jwtSecretKey = "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTYzNjM3NjUwNywiaWF0IjoxNjM2Mzc2NTA3fQ.b9bm5gdUnue99HCalBBJCdlShbtrQVyiSGvQqd13zeg";
+    const token = jwt.sign({ _id: user._id, name: user.name, email: user.email}, jwtSecretKey);
+
+    return res.status(201).json({
+        success: true,
+        token: token,
+    });
+}
+
 module.exports = {
     signUp,
+    signIn
 }

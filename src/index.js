@@ -16,6 +16,7 @@ import thunk from "redux-thunk";
 import rootReducer from './store/reducers/rootReducer';
 import ManageEvent from './routes/manage-event';
 import RegisterPage from './routes/register';
+import LoginPage from './routes/login';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
@@ -27,6 +28,7 @@ ReactDOM.render(
           <Route path="/" element={<App />}/>
           <Route path="/manage-event" element={<ManageEvent />}/>
           <Route path="/register" element={<RegisterPage />}/>
+          <Route path="/login" element={<LoginPage />}/>
         </Routes>
       </Provider>
     </BrowserRouter>
