@@ -36,7 +36,7 @@ signUp = async (req, res) => {
         .save()
         .then(() => {
             const jwtSecretKey = "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTYzNjM3NjUwNywiaWF0IjoxNjM2Mzc2NTA3fQ.b9bm5gdUnue99HCalBBJCdlShbtrQVyiSGvQqd13zeg";
-            const token = jwt.sign({ _id: user._id, name: user.name, email: user.email}, jwtSecretKey);
+            const token = jwt.sign({ _id: user._id, name: user.name, email: user.email, avatar: user.avatar}, jwtSecretKey);
             return res.status(201).json({
                 success: true,
                 token: token

@@ -5,12 +5,12 @@ import { signUp } from "../store/actions/authAction";
 const RegisterForm = () => {
     const dispatch = useDispatch();
 
+    const [avatar, setAvatar] = useState({});
     const [user, setUser] = useState({
         name: "",
         email: "",
         password: "",
-        confirmpw: "",
-        avatar: ""
+        confirmpw: ""
     })
 
     const handleChange = (e) => {
@@ -21,10 +21,18 @@ const RegisterForm = () => {
         })
     }
 
+    const handleFileChange = (e) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(e.target.files[0]);
+        reader.onload = () => {
+            setAvatar(reader.result);
+        }
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         try {
-            dispatch(signUp(user));
+            dispatch(signUp({...user, avatar: JSON.stringify(avatar)}));
         } catch (error) {
             console.log(error);
         }
@@ -73,8 +81,10 @@ const RegisterForm = () => {
                 <input
                     name="avatar"
                     type="file"
+                    accept="image/*"
                     value={user.avatar}
-                    onChange={handleChange}
+                    onChange={handleFileChange}
+                    onClick={(event) => { event.target.value = ''}}
                 />
                 </label>
                 <input type="submit" value="Submit" />

@@ -9,10 +9,13 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
     switch(action.type) {
-        case "SIGN_IN":
         case "SIGN_UP":
+        case "SIGN_IN":
+            window.location.href="/manage-event";
+            console.log(action.token.token);
 
             const user = jwtDecode(action.token.token);
+            localStorage.setItem("data", JSON.stringify({'user' : user}));
             return {
                 ...initialState,
                 token: action.token,

@@ -4,7 +4,6 @@ export const signUp = (user) => {
     return (dispatch) => {
         try {
             apis.signUp(user).then((token) => {
-
                 localStorage.setItem("token", token.data.token);
                 
                 dispatch({
@@ -28,9 +27,8 @@ export const signIn = (user) => {
                     type: "SIGN_IN",
                     token: token.data
                 })
-            });
-
-            window.location.href="/manage-event";
+            })
+            .catch((e) => console.log(e));
 
 
         } catch (e) {

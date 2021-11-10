@@ -18,6 +18,7 @@ export const getEvents = () => {
 export const saveEvent = (newevt) => {
     return (dispatch, getState) => {
         try {
+            console.log(getState().auth);
             apis.insertEvent(newevt).then((event) => {
                 dispatch({
                     type: "ADD_EVENT",

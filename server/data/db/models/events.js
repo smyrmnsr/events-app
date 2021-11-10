@@ -8,6 +8,9 @@ const Event = new Schema(
     startDate: { type: String, required: true },
     endDate: { type: String, required: true },
     submittedAt: { type: String, required: true },
+    author: { type: String, required: true},
+    uid: { type: String, required: true},
+    avatar: { data: Buffer, type: String, required: false }
   },
   { timestamps: true }
 );
