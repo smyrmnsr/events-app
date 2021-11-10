@@ -38,5 +38,13 @@ export const signIn = (user) => {
 }
 
 export const signOut = () => {
-    
+    return (dispatch) => {
+        try {
+            dispatch({
+                type: "SIGN_OUT"
+            })
+        } catch (e) {
+            console.log(e);
+        }
+    }
 }

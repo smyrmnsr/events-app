@@ -12,7 +12,7 @@ const EventDisplay = () => {
 
     const dispatch = useDispatch();
     const events = useSelector((state) => state.events.data);
-    
+    console.log(events);
     const isAuthenticated = localStorage.getItem("token") !== null;
 
     useEffect(() => {

@@ -17,6 +17,7 @@ import rootReducer from './store/reducers/rootReducer';
 import ManageEvent from './routes/manage-event';
 import RegisterPage from './routes/register';
 import LoginPage from './routes/login';
+import LogoutPage from './routes/logout';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
@@ -29,6 +30,7 @@ ReactDOM.render(
           <Route path="/manage-event" element={<ManageEvent />}/>
           <Route path="/register" element={<RegisterPage />}/>
           <Route path="/login" element={<LoginPage />}/>
+          <Route path="/logout" element={<LogoutPage />}/>
         </Routes>
       </Provider>
     </BrowserRouter>
