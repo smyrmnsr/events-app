@@ -18,7 +18,6 @@ export const getEvents = () => {
 export const saveEvent = (newevt) => {
     return (dispatch, getState) => {
         try {
-            console.log(getState().auth);
             apis.insertEvent(newevt).then((event) => {
                 dispatch({
                     type: "ADD_EVENT",
@@ -35,13 +34,18 @@ export const saveEvent = (newevt) => {
     }
 }
 
-export const deleteEvents = () => {
+export const deleteEvents = (userId) => {
     return (dispatch) => {
-            apis.deleteEvents().then((status) => {
+        try {
+            apis.deleteEvents(userId).then((status) => {
                 dispatch({
                     type: "DELETE_EVENTS",
                     status
-                })
-            })
+                });
+                window.location.href="/";
+            });
+        } catch (e) {
+            console.log(e);
+        }
     }
 }

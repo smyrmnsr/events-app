@@ -12,8 +12,7 @@ const authReducer = (state = initialState, action) => {
         case "SIGN_UP":
         case "SIGN_IN":
             window.location.href="/manage-event";
-            console.log(action.token.token);
-
+            
             const user = jwtDecode(action.token.token);
             localStorage.setItem("data", JSON.stringify({'user' : user}));
             return {

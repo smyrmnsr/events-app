@@ -6,7 +6,7 @@ const api = axios.create({
 
 export const insertEvent = (payload) => api.post(`/event`, payload);
 export const getAllEvents = () => api.get(`/events`);
-export const deleteEvents = () => api.delete(`/events`);
+export const deleteEvents = (payload) => api.post(`/events/delete`, payload);
 export const signUp = (payload) => api.post('/register', payload);
 export const signIn = (payload) => api.post('/login', payload);
 

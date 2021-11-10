@@ -2,14 +2,14 @@ const Event = require("../data/db/models/events");
 
 createEvent = (req, res) => {
   const body = req.body;
-
+  
   if (!body) {
     return res.status(400).json({
       success: false,
       error: "You must provide an event",
     });
   }
-  console.log(body);
+
   const event = new Event(body);
 
   if (!event) {
@@ -35,7 +35,9 @@ createEvent = (req, res) => {
 };
 
 deleteEvents = async (req, res) => {
-  await Event.deleteMany({}, (err, event) => {
+  const body = req.body;
+
+  await Event.deleteMany(body, (err, event) => {
     if (err) {
       return res.status(400).json({ success: false, error: err });
     }
