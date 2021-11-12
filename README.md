@@ -7,11 +7,19 @@
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
+
+
 ### Prerequisites
 
 * [NPM](https://docs.npmjs.com/cli/v7/commands/npm-install) and [Node.js](https://nodejs.org/en/) installed
 * [MongoDB](https://www.mongodb.com/)
 
+### Clone the application
+
+   ```bash
+   git clone https://github.com/smyrmnsr/events-app
+   cd events-app
+   ```
 
 ### Configuration 
 
