@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+## Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-## Available Scripts
+### Prerequisites
 
-In the project directory, you can run:
+* [NPM](https://docs.npmjs.com/cli/v7/commands/npm-install) and [Node.js](https://nodejs.org/en/) installed
+* [MongoDB](https://www.mongodb.com/)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Configuration 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Setup a MongoDB Database and replace the connection string from server/data/db/index.js with you own.
 
-### `npm test`
+It should look like this:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+mongodb+srv://<username>:<password>@cluster0-tyqyw.mongodb.net/<dbname>?retryWrites=true&w=majority
 
-### `npm run build`
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You should have a connection string like above replacing the username and password with your credentials
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installing
 
-### `npm run eject`
+Installing NPM modules on both client and server folders
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Execute these commands from the project root directory
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+cd server && npm install
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Running the app
 
-## Learn More
+Open a terminal on root directory
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+npm run start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+and open another terminal on server directory
+```
+cd server && npm start
+```
 
-### Code Splitting
+Access the web app at http://localhost:3000/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Technologies Used
 
-### Analyzing the Bundle Size
+FRONTEND
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![REACT](https://img.shields.io/badge/REACT-black?style=flat&logo=react&logoColor=cyan)
+![JAVASCRIPT](https://img.shields.io/badge/-JAVASCRIPT-black?style=flat&logo=javascript)
+![CSS3](https://img.shields.io/badge/-CSS3-black?style=flat&logo=css3)
+![HTML5](https://img.shields.io/badge/-HTML5-black?style=flat&logo=html5&logoColor=red)
+![TAILWINDCSS](https://img.shields.io/badge/TAILWIND_CSS-black?style=flat&logo=tailwind-css&logoColor=cyan)
 
-### Making a Progressive Web App
+BACKEND
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![NODE.JS](https://img.shields.io/badge/NODE.JS-black?style=flat&logo=node-dot-js&logoColor=green)
+![MONGODB](https://img.shields.io/badge/MONGODB-black?style=flat&logo=postgresql&logoColor=blue)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Author
 
-### Deployment
+👤 **Samir Mansour**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Github: [@smyrmnsr](https://github.com/smyrmnsr)
