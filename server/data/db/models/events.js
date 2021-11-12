@@ -10,7 +10,8 @@ const Event = new Schema(
     submittedAt: { type: String, required: true },
     author: { type: String, required: true},
     uid: { type: String, required: true},
-    avatar: { data: Buffer, type: String, required: false }
+    avatar: { data: Buffer, type: String, required: false },
+    active: { type: Boolean, default: true, required: false }
   },
   { timestamps: true }
 );

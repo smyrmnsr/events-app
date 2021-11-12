@@ -18,13 +18,16 @@ import ManageEvent from './routes/manage-event';
 import RegisterPage from './routes/register';
 import LoginPage from './routes/login';
 import LogoutPage from './routes/logout';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>
+    <ToastContainer />
     <BrowserRouter>
-      <Provider store={store}>  
+      <Provider store={store}> 
         <Routes>
           <Route path="/" element={<App />}/>
           <Route path="/manage-event" element={<ManageEvent />}/>

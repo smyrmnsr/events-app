@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
 import EventForm from "../components/eventForm";
+import NavBar from "../components/navigation/nav";
 
 const ManageEvent = () => {
 
@@ -11,7 +12,10 @@ const ManageEvent = () => {
     })
 
     return (
-        <EventForm />
+        <>
+            <NavBar />
+            <EventForm />
+        </>
     )
 }
 

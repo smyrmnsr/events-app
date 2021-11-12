@@ -1,4 +1,5 @@
 import apis from "../../api";
+import { toast } from "react-toastify";
 
 export const getEvents = () => {
     return (dispatch) => {
@@ -18,15 +19,22 @@ export const getEvents = () => {
 export const saveEvent = (newevt) => {
     return (dispatch, getState) => {
         try {
-            apis.insertEvent(newevt).then((event) => {
-                dispatch({
-                    type: "ADD_EVENT",
-                    event
-                });
+            if(newevt.eventName && newevt.location && newevt.startDate && newevt.endDate) {
+                apis.insertEvent(newevt).then((event) => {
+                    dispatch({
+                        type: "ADD_EVENT",
+                        event
+                    });
 
-                alert("Event saved successfully");
-                window.location.href="/";
-            })
+                    toast("Event saved successfully", {
+                        position: "bottom-right",
+                    });
+                });
+            } else {
+                toast("All fields are required", {
+                    position: "bottom-right",
+                })
+            }
             
         } catch (e) {
             console.log(e);
@@ -38,11 +46,14 @@ export const deleteEvents = (userId) => {
     return (dispatch) => {
         try {
             apis.deleteEvents(userId).then((status) => {
+                toast("Events successfully deleted", {
+                    position: "bottom-right",
+                })
+
                 dispatch({
                     type: "DELETE_EVENTS",
                     status
                 });
-                window.location.href="/";
             });
         } catch (e) {
             console.log(e);

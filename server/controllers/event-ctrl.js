@@ -1,4 +1,5 @@
 const Event = require("../data/db/models/events");
+const moment = require("moment");
 
 createEvent = (req, res) => {
   const body = req.body;
@@ -47,7 +48,7 @@ deleteEvents = async (req, res) => {
 };
 
 getEvents = async (req, res) => {
-  await Event.find({}).sort({createdAt: "desc"}).exec((err, events) => {
+  await Event.find({}).sort({submittedAt: "desc"}).exec((err, events) => {
     if (err) {
       return res.status(400).json({ success: false, error: err });
     }
@@ -58,8 +59,45 @@ getEvents = async (req, res) => {
   });
 };
 
+updateEvents = async () => {
+
+  let passedEvents = [];
+
+  await Event.find({active: true}).exec((err, events) => {
+    if(err) {
+      return console.log(err);
+    }
+
+    if (!events.length) {
+      return console.log("There are no events that need updating");
+    }
+
+    events.forEach((event) => {
+      if(moment().isAfter(event.endDate)) {
+        passedEvents.push(event._id.valueOf());
+      }
+    });
+    
+    Event.updateMany({"_id": passedEvents}, {active: false})
+    .exec((err, data) => {
+
+      if(err) {
+        return console.log(err);
+      }
+
+      if(data.modifiedCount > 0) {
+        return console.log("There were " + data.modifiedCount + " events updated");
+      }
+
+      return console.log("No events needed an update");
+    });
+
+  });
+}
+
 module.exports = {
   createEvent,
   deleteEvents,
   getEvents,
+  updateEvents,
 };

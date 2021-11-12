@@ -1,16 +1,13 @@
 import './App.css';
 import EventDisplay from './components/eventDisplay';
-import {Link} from "react-router-dom";
+import NavBar from './components/navigation/nav';
 
 function App() {
   return (
     <div className="App">
+      <NavBar /> 
       <header className="App-header">
         <EventDisplay/>
-        <Link to="/manage-event"> Create a new event </Link>
-        <Link to="/login"> Login </Link>
-        <Link to="/register"> Register </Link>
-        <Link to="/logout"> Logout </Link>
       </header>
     </div>
   );
