@@ -1,3 +1,8 @@
+## About the Project
+
+> Event-App is a simple mern web app that facilitates creating and displaying events.
+
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
