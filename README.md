@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+## About the Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Event-App is a simple mern web app that facilitates creating and displaying events.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* [NPM](https://docs.npmjs.com/cli/v7/commands/npm-install) and [Node.js](https://nodejs.org/en/) installed
+* [MongoDB](https://www.mongodb.com/)
 
-### `npm run build`
+### Clone the application
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   git clone https://github.com/smyrmnsr/events-app
+   cd events-app
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Configuration 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Setup a MongoDB Database and replace the connection string from server/data/db/index.js with you own.
 
-### `npm run eject`
+It should look like this:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+mongodb+srv://<username>:<password>@cluster0-tyqyw.mongodb.net/<dbname>?retryWrites=true&w=majority
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+You should have a connection string like above replacing the username and password with your credentials
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### Installing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Installing NPM modules on both client and server folders
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Execute these commands from the project root directory
 
-### Code Splitting
+```
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+cd server && npm install
+```
 
-### Analyzing the Bundle Size
+### Running the app
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Open a terminal on root directory
 
-### Making a Progressive Web App
+```
+npm run start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+and open another terminal on server directory
+```
+cd server && npm start
+```
 
-### Advanced Configuration
+Access the web app at http://localhost:3000/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Technologies Used
 
-### Deployment
+FRONTEND
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![REACT](https://img.shields.io/badge/REACT-black?style=flat&logo=react&logoColor=cyan)
+![JAVASCRIPT](https://img.shields.io/badge/-JAVASCRIPT-black?style=flat&logo=javascript)
+![CSS3](https://img.shields.io/badge/-CSS3-black?style=flat&logo=css3)
+![HTML5](https://img.shields.io/badge/-HTML5-black?style=flat&logo=html5&logoColor=red)
+![TAILWINDCSS](https://img.shields.io/badge/TAILWIND_CSS-black?style=flat&logo=tailwind-css&logoColor=cyan)
 
-### `npm run build` fails to minify
+BACKEND
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![NODE.JS](https://img.shields.io/badge/NODE.JS-black?style=flat&logo=node-dot-js&logoColor=green)
+![MONGODB](https://img.shields.io/badge/MONGODB-black?style=flat&logo=postgresql&logoColor=blue)
+
+
+## Author
+
+👤 **Samir Mansour**
+
+- Github: [@smyrmnsr](https://github.com/smyrmnsr)
