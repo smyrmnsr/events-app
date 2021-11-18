@@ -7,11 +7,15 @@ import NavBar from "../components/navigation/nav";
 
 const LogoutPage = () => {
     const dispatch = useDispatch();
+    /* Pushes the routes using react-router-dom. Replaces window.location.href */
     let navigate = useNavigate();
 
     const handleLogout = () => {
         try {
+            /* Dispatches the signOut function from Redux that deletes the token and user data from localStorage */
             dispatch(signOut());
+
+            /* Change current route to / */
             navigate("/");
         } catch (e) {
             console.log(e);

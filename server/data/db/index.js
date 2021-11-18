@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+
+/* Connect to mongoDB with mongoose */
 try {
   mongoose.connect(
     "mongodb+srv://samyrr1:S1m2r3@cluster0.gi4tc.mongodb.net/events-app?retryWrites=true&w=majority",

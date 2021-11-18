@@ -1,15 +1,18 @@
 import apis from "../../api";
 import { toast } from "react-toastify";
 
+/* Sign up function that checks the credentials and logges the user in */
 export const signUp = (user) => {
   return (dispatch) => {
     try {
+      /* If all the fields are not NULL, the user data is sent using the signup endpoint */
       if (user.name && user.email && user.password && user.confirmpw) {
         apis
           .signUp(user)
           .then((token) => {
             localStorage.setItem("token", token.data.token);
-
+            
+            /* dispatch the redux action corresponding to the "sign up" */
             dispatch({
               type: "SIGN_UP",
               token: token.data,
@@ -32,15 +35,18 @@ export const signUp = (user) => {
   };
 };
 
+/* Sign in function that checks the credentials, registers a new user and logges the user in */
 export const signIn = (user) => {
   return (dispatch) => {
     try {
+      /* If all the fields are not NULL, the user data is sent using the signin endpoint */
       if (user.email && user.password) {
         apis
           .signIn(user)
           .then((token) => {
             localStorage.setItem("token", token.data.token);
 
+            /* dispatch the redux action corresponding to the "sign in" */
             dispatch({
               type: "SIGN_IN",
               token: token.data,
@@ -63,9 +69,11 @@ export const signIn = (user) => {
   };
 };
 
+/* Signs the user out */
 export const signOut = () => {
   return (dispatch) => {
     try {
+      /* dispatch the redux action corresponding to the "sign out" */
       dispatch({
         type: "SIGN_OUT",
       });

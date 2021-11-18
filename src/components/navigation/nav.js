@@ -4,11 +4,14 @@ import { useDispatch } from "react-redux";
 import { signOut } from "../../store/actions/authAction";
 
 const NavBar = () => {
+  /* Mobile collapsed navbar */
   const [isOpen, setIsOpen] = useState(false);
 
+  /* Variable to store if the user is logged in */
   const [isAuthenticated, setAuthentication] = useState(null);
 
   useEffect(() => {
+    /* Check if the user is logged */
     setAuthentication(localStorage.getItem("token") !== null);
   }, []);
 
@@ -16,6 +19,7 @@ const NavBar = () => {
 
     const handleLogout = () => {
         try {
+          /* Dispatches the signOut function from Redux */
             dispatch(signOut());
         } catch (e) {
             console.log(e);

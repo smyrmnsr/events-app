@@ -5,6 +5,7 @@ const UserCtrl = require("../controllers/user-ctrl");
 
 const router = express.Router();
 
+/* Create all the API endpoints for events and users */
 router.post("/event", EventCtrl.createEvent);
 router.post("/events/delete", EventCtrl.deleteEvents);
 router.get("/events", EventCtrl.getEvents);
